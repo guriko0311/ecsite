@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTO Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- Strutsの詳細設定 -->
+<struts>
+		<constant name="struts.devMode" value="true"/>
+		<package name="com.internousdev.ecsite.action" extends = "struts-default">
+
+<!-- 		GoHomeActionから返ってきたsuccessでhome.jspに飛ぶ -->
+<!-- 						↓↓ -->
+				<!-- GoHomeAction -->
+				<action name = "GoHomeAction"
+class = "com.internousdev.ecsite.action.GoHomeAction" method = "execute">
+						<result name = "success">home.jsp</result>
+	</action>
+
+	<!-- HomeAction -->
+<!-- 	HomeActionのresultの結果がloginならlogin.jspに飛んで、 -->
+<!-- 	resultの結果がsuccessならbuyitem.jspに飛ぶ -->
+<!-- 							↓↓ -->
+	<action name = "HomeAction" class = "com.internousdev.ecsite.action.HomeAction" method = "execute">
+			<result name = "login">login.jsp</result>
+			<result name = "success">buyItem.jsp</result>
+	</action>
+
+	<action name="AdminAction" class = "com.internousdev.ecsite.action.AdminAction" method = "execute">
+			<result name = "success">admin.jsp</result>
+	</action>
+
+	<action name="itemCreateAction" class = "com.internousdev.ecsite.action.itemCreateAction" method = "execute">
+			<result name = "success">itemCreate.jsp</result>
+	</action>
+
+	<action name = "ItemCreateConfirmAction" class = "com.internousdev.ecsite.action.ItemCreateConfirmAction" method = "execute">
+			<result name = "success">itemCreateConfirm.jsp</result>
+			<result name = "error">itemCreate.jsp</result>
+	</action>
+
+	<action name="ItemCreateCompleteAction" class = "com.internousdev.ecsite.action.ItemCreateCompleteAction" method = "execute">
+			<result name = "success">itemCreateComplete.jsp</result>
+	</action>
+
+	<action name="ItemListAction" class = "com.internousdev.ecsite.action.ItemListAction" method = "execute">
+			<result name = "success">itemList.jsp</result>
+	</action>
+
+	<action name="ItemDeleteConfirmAction" class = "com.internousdev.ecsite.action.ItemDeleteConfirmAction" method = "execute">
+			<result name = "success">itemListDeleteConfirm.jsp</result>
+	</action>
+
+	<action name="ItemListDeleteCompleteAction" class = "com.internousdev.ecsite.action.ItemListDeleteCompleteAction" method = "execute">
+			<result name = "success">itemListDeleteComplete.jsp</result>
+	</action>
+
+	<action name="UserListAction" class = "com.internousdev.ecsite.action.UserListAction" method = "execute">
+			<result name = "success">userList.jsp</result>
+	</action>
+
+	<action name="UserListDeleteConfirmAction" class = "com.internousdev.ecsite.action.UserListDeleteConfirmAction" method = "execute">
+			<result name = "success">userListDeleteConfirm.jsp</result>
+	</action>
+
+	<action name="UserListDeleteCompleteAction" class = "com.internousdev.ecsite.action.UserListDeleteCompleteAction" method = "execute">
+			<result name = "success">userListDeleteComplete.jsp</result>
+	</action>
+
+	<!-- LoginAction -->
+<!-- 	LoginActionで処理された結果がSUCCESSならbuyItem.jspにerrorならlogin.jspに飛ぶ -->
+<!-- 										↓↓ -->
+	<action name = "LoginAction" class = "com.internousdev.ecsite.action.LoginAction" method = "execute">
+			<result name = "success">buyItem.jsp</result>
+			<result name = "error">login.jsp</result>
+			<result name = "admin">admin.jsp</result>
+	</action>
+
+<!-- 	UserCreateAction -->
+<!-- 		UserCreateActionでsuccessが返り、userCreate.jspに飛ぶ -->
+<!-- 					↓↓ -->
+	<action name = "UserCreateAction"
+class = "com.internousdev.ecsite.action.UserCreateAction" method = "execute">
+			<result name = "success">userCreate.jsp</result>
+
+	</action>
+
+	<!-- UserCreateConfirmAction -->
+<!-- 	successが返ればuserCreateConfirm.jspに飛び、errorが返ればuserCreate.jspに飛ぶ -->
+<!-- 							↓↓ -->
+	<action name = "UserCreateConfirmAction"
+class = "com.internousdev.ecsite.action.UserCreateConfirmAction" method = "execute">
+			<result name = "success">userCreateConfirm.jsp</result>
+			<result name = "error">userCreate.jsp</result>
+	</action>
+
+	<!-- UserCreateCompleteAction -->
+<!-- 	UserCreateCompleteActionから返ってきたsuccessでuserCreateComplete.jspに飛ぶ -->
+<!-- 							↓↓ -->
+	<action name = "UserCreateCompleteAction"
+class = "com.internousdev.ecsite.action.UserCreateCompleteAction" method = "execute">
+			<result name = "success">userCreateComplete.jsp</result>
+	</action>
+
+	<!-- BuyItemAction -->
+<!-- 	BuyItemActionからsuccessが返りbuyItemConfirm.jspに飛ぶ -->
+<!-- 						↓↓ -->
+	<action name = "BuyItemAction"
+class = "com.internousdev.ecsite.action.BuyItemAction" method = "execute">
+			<result name = "success">buyItemConfirm.jsp</result>
+			<result name = "error">buyItem.jsp</result>
+	</action>
+
+	<!-- BuyItemConfirmAction -->
+<!-- 	BuyItemConfirmActionから返ってきたsuccessによりbuyItemComplete.jspに飛ぶ -->
+<!-- 							↓↓ -->
+	<action name = "BuyItemConfirmAction"
+class = "com.internousdev.ecsite.action.BuyItemConfirmAction" method = "execute">
+				<result name = "success">buyItemComplete.jsp</result>
+				<result name = "back">buyItem.jsp</result>
+			</action>
+
+	<!-- MyPageAction -->
+	<action name = "MyPageAction" class = "com.internousdev.ecsite.action.MyPageAction" method = "execute">
+			<result name = "success">myPage.jsp</result>
+			<result name = "error">home.jsp</result>
+	</action>
+
+	<!-- LogoutAction -->
+<!-- 	LogoutActionから返ってきたsuccessでhome.jspに飛ぶ -->
+<!-- 						↓↓ -->
+	<action name = "LogoutAction" class = "com.internousdev.ecsite.action.LogoutAction" method = "execute">
+			<result name = "success">home.jsp</result>
+	</action>
+
+	</package>
+</struts>
